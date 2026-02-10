@@ -9,7 +9,21 @@
 <body>
     <div class="adivina">
         <h2 class="titulo">¡Adivina el número!</h2>
-
+        <h4 class="pista">Hay un número entre el 1 y el 100 que tienes que adivinar
+            escribiéndolo aqui debajo, te iré dando pistas, no te preocupes.
+            ¡Suerte!
+        </h4>
+        <p class="numeroAdivinar">1</p>
+        <input class="insertarNumero" min="1" max="100" 
+        type="number" placeholder="Escribe aqui el numero...">
+        <button class="enviar">Enviar</button>
+        <button class="reinicio">Reiniciar</button>
+        <div class="mensajesDinamicos">
+            <p id="mensajes"></p>
+        </div>
+    </div>
+    <div class="intentos">
+        <p class="numeroIntentos">0</p>
     </div>
     <script src="script.js"></script>
 </body>
