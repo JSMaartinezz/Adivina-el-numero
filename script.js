@@ -11,16 +11,25 @@ let botonEmpezar = document.querySelector(".Empezar");
 // Logica del juego:
 // 1.Botón para empezar el juego
 let juegoEmpezado = false;
-numeroSecreto = true;
+ let numeroSecreto;
 botonEmpezar.addEventListener("click", function() {
     if (juegoEmpezado === false) {
         // 2.Generar el número secreto
-        let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        numeroSecreto = Math.floor(Math.random() * 100) + 1;
         console.log(numeroSecreto);
-    } else {
-        juegoEmpezado === false;
-        numeroSecreto === false;
+        juegoEmpezado = true
+        numeroAdivinar.textContent = ("Número generado, escribe un numero debajo y pulsa enviar para intentar adivinarlo.");
+    };
+});
+
+botonEnviar.addEventListener("click", function() {
+    let inputNumero = Number(input.value);
+    if (juegoEmpezado === false) {
+        mensajes.textContent = ("Pulsa: EMPEZAR")
     }
-})
-
-
+   else if (inputNumero < numeroSecreto) {
+        mensajes.textContent = ("MAS ALTO");
+    } else if (inputNumero > numeroSecreto) {
+        mensajes.textContent = ("MAS BAJO");
+    } else {mensajes.textContent = ("¡HAS ACERTADO!")};
+});
