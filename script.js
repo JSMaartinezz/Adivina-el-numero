@@ -5,7 +5,7 @@ let input = document.querySelector(".insertarNumero");
 let botonEnviar = document.querySelector(".enviar");
 let botonReinicio = document.querySelector(".reinicio");
 let mensajes = document.getElementById("mensajes");
-
+let intentos = 0;
 let botonEmpezar = document.querySelector(".Empezar");
 
 // Logica del juego:
@@ -19,7 +19,7 @@ botonEmpezar.addEventListener("click", function() {
         numeroSecreto = Math.floor(Math.random() * 100) + 1;
         console.log(numeroSecreto);
         juegoEmpezado = true;
-        numeroIntentos = 0;
+        intentos = 0;
         numeroAdivinar.textContent = ("Número generado, escribe un numero debajo y pulsa enviar para intentar adivinarlo.");
     };
 });
@@ -29,13 +29,14 @@ botonEnviar.addEventListener("click", function() {
     if (juegoEmpezado === false) {
         mensajes.textContent = ("Pulsa: EMPEZAR")
     } else {
-        numeroIntentos ++;
-        console.log(numeroIntentos);
+        intentos = intentos + 1;
+        console.log(intentos);
+        numeroIntentos.textContent = intentos;
     if (inputNumero < numeroSecreto) {
         mensajes.textContent = ("MAS ALTO");
     } else if (inputNumero > numeroSecreto) {
         mensajes.textContent = ("MAS BAJO");
-    } else {mensajes.textContent = ("¡HAS ACERTADO!") 
+    } else {mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.")
+        juegoEmpezado = false; 
     }};
-});
-
+})
