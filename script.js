@@ -7,6 +7,7 @@ let botonReinicio = document.querySelector(".reinicio");
 let mensajes = document.getElementById("mensajes");
 let intentos = 0;
 let botonEmpezar = document.querySelector(".Empezar");
+let juegoTerminado = false;
 
 // Logica del juego:
 // 1.Botón para empezar el juego
@@ -17,27 +18,30 @@ botonEmpezar.addEventListener("click", function() {
     if (juegoEmpezado === false) {
         // 2.Generar el número secreto
         numeroSecreto = Math.floor(Math.random() * 100) + 1;
-        console.log(numeroSecreto);
         juegoEmpezado = true;
         intentos = 0;
         numeroAdivinar.textContent = ("Número generado, escribe un numero debajo y pulsa enviar para intentar adivinarlo.");
+        mensajes.textContent = "";
+        juegoTerminado = false;
     };
 });
 
 botonEnviar.addEventListener("click", function() {
-    let inputNumero = Number(input.value);
-    if (juegoEmpezado === false) {
+    let inputNumero = Number(input.value);   
+    if (juegoTerminado === true) {
+        return;
+        }
+    if (juegoEmpezado === false && juegoTerminado === false) {
         mensajes.textContent = ("Pulsa: EMPEZAR")
-    } else {
+    } else { 
         intentos = intentos + 1;
-        console.log(intentos);
         numeroIntentos.textContent = intentos;
     if (inputNumero < numeroSecreto) {
         mensajes.textContent = ("MAS ALTO");
     } else if (inputNumero > numeroSecreto) {
         mensajes.textContent = ("MAS BAJO");
     } else {mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.")
-        juegoEmpezado = false; 
+        juegoTerminado = true;
     }};
 });
 
@@ -48,5 +52,5 @@ botonReinicio.addEventListener("click", function() {
     mensajes.textContent = "";
     numeroAdivinar.textContent = "";
     intentos = 0;
-
+    juegoTerminado = false;
 })
