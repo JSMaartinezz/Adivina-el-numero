@@ -39,4 +39,14 @@ botonEnviar.addEventListener("click", function() {
     } else {mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.")
         juegoEmpezado = false; 
     }};
+});
+
+botonReinicio.addEventListener("click", function() {
+    juegoEmpezado = false;
+    numeroIntentos.textContent = 0;
+    input.value = "";
+    mensajes.textContent = "";
+    numeroAdivinar.textContent = "";
+    intentos = 0;
+
 })
