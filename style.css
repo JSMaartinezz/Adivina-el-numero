@@ -42,4 +42,21 @@ body {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+.Empezar {
+    padding: 3px;
+    background-image: linear-gradient(to right, rgb(255, 170, 170), rgb(88, 88, 255));
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.enviar {
+    padding: 3px;
+    background-image: linear-gradient(to right, rgb(85, 161, 55), rgb(6, 112, 11));
+    color: #fff;
+}
+.reinicio {
+    padding: 3px;
+    background-image: linear-gradient(to right, rgb(133, 67, 67), red);
+    color: #fff;
+}
 
