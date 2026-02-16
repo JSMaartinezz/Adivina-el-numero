@@ -40,7 +40,8 @@ botonEnviar.addEventListener("click", function() {
         mensajes.textContent = ("MAS ALTO");
     } else if (inputNumero > numeroSecreto) {
         mensajes.textContent = ("MAS BAJO");
-    } else {mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.")
+    } else {mensajes.classList.add("VICTORIA")
+        mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.");
         juegoTerminado = true;
     }};
 });
@@ -53,4 +54,5 @@ botonReinicio.addEventListener("click", function() {
     numeroAdivinar.textContent = "";
     intentos = 0;
     juegoTerminado = false;
+    mensajes.classList.remove("VICTORIA");
 })

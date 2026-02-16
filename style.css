@@ -68,3 +68,16 @@ body {
     padding: 4px;
 
 }
+
+.VICTORIA {
+   animation: celebrar 0.6 ease-in-out; 
+}
+@keyframes celebrar {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
