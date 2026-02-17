@@ -18,8 +18,6 @@ botonEmpezar.addEventListener("click", function() {
     if (juegoEmpezado === false) {
         // 2.Generar el número secreto
         numeroSecreto = Math.floor(Math.random() * 100) + 1;
-        // ELIMINAR CONSOLE.LOG UNA VEZ ACABE EL PROYECTO
-        console.log(numeroSecreto);
         juegoEmpezado = true;
         intentos = 0;
         numeroAdivinar.textContent = ("Número generado, escribe un numero debajo y pulsa enviar para intentar adivinarlo.");
