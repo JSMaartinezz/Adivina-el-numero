@@ -82,10 +82,40 @@ body {
     }
     100% {
         opacity: 1;
+        
     }
 }
 
 .bajo {
-    
+   animation: bajo 1.5s ease-in forwards;
+   opacity: 1;
+}
+@keyframes bajo {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        color: rgb(0, 166, 172);
+    }
 }
 
+.alto {
+   animation: alto 1.5s ease-in forwards;
+   opacity: 1;
+}
+@keyframes alto {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        color: orange;
+    }
+}

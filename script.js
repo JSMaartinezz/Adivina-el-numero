@@ -39,12 +39,18 @@ botonEnviar.addEventListener("click", function() {
         intentos = intentos + 1;
         numeroIntentos.textContent = intentos;
     if (inputNumero < numeroSecreto) {
-        mensajes.textContent = ("MAS ALTO");
+        mensajes.textContent = ("🔥 MAS ALTO 🔥");
+        void mensajes.offsetHeight;
+         mensajes.classList.remove("bajo", "4VICTORIA");
         mensajes.classList.add("alto");
     } else if (inputNumero > numeroSecreto) {
-        mensajes.textContent = ("MAS BAJO");
-        mensajes.classList.add("alto");
-    } else {mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.");
+        mensajes.textContent = ("🧊 MAS BAJO 🧊");
+        void mensajes.offsetHeight;
+        mensajes.classList.remove("alto", "VICTORIA");
+        mensajes.classList.add("bajo");
+    } else {mensajes.textContent = (" 🎊 🎉¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar  🎊 🎉");
+        void mensajes.offsetHeight;
+         mensajes.classList.remove("alto", "bajo");
         mensajes.classList.add("VICTORIA")
         juegoTerminado = true;
     }};
@@ -59,5 +65,7 @@ botonReinicio.addEventListener("click", function() {
     intentos = 0;
     juegoTerminado = false;
     mensajes.classList.remove("VICTORIA");
+    mensajes.classList.remove("alto");
+    mensajes.classList.remove("bajo");
     mensajes.style.opacity = "0";
 })
