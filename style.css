@@ -70,14 +70,22 @@ body {
 }
 
 .VICTORIA {
-   animation: celebrar 0.6 ease-in-out; 
+   animation: celebrar 1.5s ease-in forwards;
+   opacity: 1;
 }
 @keyframes celebrar {
     0% {
         opacity: 0;
     }
+    50% {
+        opacity: 0.5;
+    }
     100% {
         opacity: 1;
     }
+}
+
+.bajo {
+    
 }
 

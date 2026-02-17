@@ -18,6 +18,8 @@ botonEmpezar.addEventListener("click", function() {
     if (juegoEmpezado === false) {
         // 2.Generar el número secreto
         numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        // ELIMINAR CONSOLE.LOG UNA VEZ ACABE EL PROYECTO
+        console.log(numeroSecreto);
         juegoEmpezado = true;
         intentos = 0;
         numeroAdivinar.textContent = ("Número generado, escribe un numero debajo y pulsa enviar para intentar adivinarlo.");
@@ -38,10 +40,12 @@ botonEnviar.addEventListener("click", function() {
         numeroIntentos.textContent = intentos;
     if (inputNumero < numeroSecreto) {
         mensajes.textContent = ("MAS ALTO");
+        mensajes.classList.add("alto");
     } else if (inputNumero > numeroSecreto) {
         mensajes.textContent = ("MAS BAJO");
-    } else {mensajes.classList.add("VICTORIA")
-        mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.");
+        mensajes.classList.add("alto");
+    } else {mensajes.textContent = ("¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar.");
+        mensajes.classList.add("VICTORIA")
         juegoTerminado = true;
     }};
 });
@@ -55,4 +59,5 @@ botonReinicio.addEventListener("click", function() {
     intentos = 0;
     juegoTerminado = false;
     mensajes.classList.remove("VICTORIA");
+    mensajes.style.opacity = "0";
 })
