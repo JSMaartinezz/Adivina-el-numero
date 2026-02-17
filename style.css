@@ -76,12 +76,15 @@ body {
 @keyframes celebrar {
     0% {
         opacity: 0;
+        transform: scale(1);
     }
     50% {
         opacity: 0.5;
+        transform: scale(1.1) translate(25%);
     }
     100% {
         opacity: 1;
+        transform: scale(1);
         
     }
 }
@@ -99,7 +102,7 @@ body {
     }
     100% {
         opacity: 1;
-        color: rgb(0, 166, 172);
+        color: rgb(0, 130, 134);
     }
 }
 
@@ -116,6 +119,6 @@ body {
     }
     100% {
         opacity: 1;
-        color: orange;
+        color: rgb(170, 111, 0);
     }
 }
