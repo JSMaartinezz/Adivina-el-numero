@@ -8,6 +8,7 @@ let mensajes = document.getElementById("mensajes");
 let intentos = 0;
 let botonEmpezar = document.querySelector(".Empezar");
 let juegoTerminado = false;
+let sonidoVictoria = new Audio("sonidos/victoria.wav");
 
 // Logica del juego:
 // 1.Botón para empezar el juego
@@ -50,6 +51,7 @@ botonEnviar.addEventListener("click", function() {
         void mensajes.offsetHeight;
          mensajes.classList.remove("alto", "bajo");
         mensajes.classList.add("VICTORIA")
+        sonidoVictoria.play();
         juegoTerminado = true;
     }};
 });
