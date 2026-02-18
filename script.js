@@ -38,19 +38,20 @@ botonEnviar.addEventListener("click", function() {
         intentos = intentos + 1;
         numeroIntentos.textContent = intentos;
     if (inputNumero < numeroSecreto) {
+        mensajes.classList.remove("bajo", "VICTORIA", "alto");
         mensajes.textContent = ("🔥 MAS ALTO 🔥");
         void mensajes.offsetHeight;
-         mensajes.classList.remove("bajo", "4VICTORIA");
         mensajes.classList.add("alto");
     } else if (inputNumero > numeroSecreto) {
+        mensajes.classList.remove("alto", "VICTORIA", "bajo");
         mensajes.textContent = ("🧊 MAS BAJO 🧊");
         void mensajes.offsetHeight;
-        mensajes.classList.remove("alto", "VICTORIA");
         mensajes.classList.add("bajo");
+        
     } else {mensajes.textContent = (" 🎊 🎉¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar  🎊 🎉");
-        void mensajes.offsetHeight;
          mensajes.classList.remove("alto", "bajo");
         mensajes.classList.add("VICTORIA")
+        void mensajes.offsetHeight;
         sonidoVictoria.play();
         juegoTerminado = true;
     }};
