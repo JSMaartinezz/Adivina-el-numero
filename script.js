@@ -9,6 +9,12 @@ let intentos = 0;
 let botonEmpezar = document.querySelector(".Empezar");
 let juegoTerminado = false;
 let sonidoVictoria = new Audio("sonidos/victoria.wav");
+let sonidoDerrota = new Audio("sonidos/error.wav");
+let parrafoTiempo = document.querySelector(".parrafoTiempo");
+let tiempoRestante = 30;
+let intervalo;
+
+
 
 // Logica del juego:
 // 1.Botón para empezar el juego
@@ -19,6 +25,19 @@ botonEmpezar.addEventListener("click", function() {
     if (juegoEmpezado === false) {
         // 2.Generar el número secreto
         numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        tiempoRestante = 30;
+        parrafoTiempo.textContent = ("Tiempo: 30s");
+        intervalo = setInterval(function() {
+        tiempoRestante = tiempoRestante - 1;
+        parrafoTiempo.textContent = "Tiempo: " + tiempoRestante + "s";
+        if (tiempoRestante === 0) {
+            clearInterval(intervalo);
+            mensajes.textContent = "❌❌¡Se acabó el tiempo, has PERDIDO!❌❌";
+            sonidoDerrota.play();
+            mensajes.classList.remove("alto", "bajo", "VICTORIA");
+            mensajes.classList.add("derrota");
+        }
+        }, 1000);
         juegoEmpezado = true;
         intentos = 0;
         numeroAdivinar.textContent = ("Número generado, escribe un numero debajo y pulsa enviar para intentar adivinarlo.");
@@ -49,10 +68,11 @@ botonEnviar.addEventListener("click", function() {
         mensajes.classList.add("bajo");
         
     } else {mensajes.textContent = (" 🎊 🎉¡HAS ACERTADO! Pulsa el botón reiniciar para volver a jugar  🎊 🎉");
-         mensajes.classList.remove("alto", "bajo");
+        mensajes.classList.remove("alto", "bajo");
         mensajes.classList.add("VICTORIA")
         void mensajes.offsetHeight;
         sonidoVictoria.play();
+        clearInterval(intervalo);
         juegoTerminado = true;
     }};
 });
@@ -68,5 +88,7 @@ botonReinicio.addEventListener("click", function() {
     mensajes.classList.remove("VICTORIA");
     mensajes.classList.remove("alto");
     mensajes.classList.remove("bajo");
+    mensajes.classList.remove("derrota");
+    tiempoRestante.textContent = 30;
     mensajes.style.opacity = "0";
 })

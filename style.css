@@ -88,6 +88,25 @@ body {
         
     }
 }
+.derrota {
+   animation: derrota 1.5s ease-in forwards;
+   opacity: 1;
+}
+@keyframes derrota {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1) translate(25%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        
+    }
+}
 
 .bajo {
    animation: bajo 1.5s ease-in forwards;
