@@ -31,7 +31,7 @@ botonEmpezar.addEventListener("click", function() {
         tiempoRestante = tiempoRestante - 1;
         parrafoTiempo.textContent = "Tiempo: " + tiempoRestante + "s";
         if (tiempoRestante === 0) {
-            mensajes.textContent = "❌❌¡Se acabó el tiempo, has PERDIDO! Pulsa reiniciar para volver a jugar❌❌";
+            mensajes.textContent = "❌❌¡Se acabó el tiempo, has PERDIDO! Pulsa reiniciar o empezar para volver a jugar❌❌";
             sonidoDerrota.play();
             mensajes.classList.remove("alto", "bajo", "VICTORIA");
             mensajes.classList.add("derrota");
