@@ -31,11 +31,13 @@ botonEmpezar.addEventListener("click", function() {
         tiempoRestante = tiempoRestante - 1;
         parrafoTiempo.textContent = "Tiempo: " + tiempoRestante + "s";
         if (tiempoRestante === 0) {
-            clearInterval(intervalo);
-            mensajes.textContent = "❌❌¡Se acabó el tiempo, has PERDIDO!❌❌";
+            mensajes.textContent = "❌❌¡Se acabó el tiempo, has PERDIDO! Pulsa reiniciar para volver a jugar❌❌";
             sonidoDerrota.play();
             mensajes.classList.remove("alto", "bajo", "VICTORIA");
             mensajes.classList.add("derrota");
+            clearInterval(intervalo);
+            juegoEmpezado = false;
+            juegoTerminado = true;
         }
         }, 1000);
         juegoEmpezado = true;
@@ -48,9 +50,7 @@ botonEmpezar.addEventListener("click", function() {
 
 botonEnviar.addEventListener("click", function() {
     let inputNumero = Number(input.value);   
-    if (juegoTerminado === true) {
-        return;
-        }
+    if (juegoTerminado === true) return;
     if (juegoEmpezado === false && juegoTerminado === false) {
         mensajes.textContent = ("Pulsa: EMPEZAR")
     } else { 
@@ -79,16 +79,19 @@ botonEnviar.addEventListener("click", function() {
 
 botonReinicio.addEventListener("click", function() {
     juegoEmpezado = false;
+    juegoTerminado = false;
     numeroIntentos.textContent = 0;
     input.value = "";
-    mensajes.textContent = "";
+    mensajes.textContent = "Pulsa: EMPEZAR";
     numeroAdivinar.textContent = "";
     intentos = 0;
-    juegoTerminado = false;
     mensajes.classList.remove("VICTORIA");
     mensajes.classList.remove("alto");
     mensajes.classList.remove("bajo");
     mensajes.classList.remove("derrota");
-    tiempoRestante.textContent = 30;
-    mensajes.style.opacity = "0";
+    clearInterval(intervalo);
+    tiempoRestante = 30;
+    parrafoTiempo.textContent = "Tiempo: 30s";
+    tiempoRestante.textContent = "30s";
+    mensajes.style.opacity = "1";
 })
